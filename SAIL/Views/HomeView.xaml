@@ -130,6 +130,35 @@
                 </Border>
             </Grid>
 
+            <UniformGrid Columns="2" Margin="0,16,0,0">
+                <Border Style="{StaticResource GlassCard}" Margin="0,0,10,0"
+                        Cursor="Hand" MouseLeftButtonUp="OpenFun_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🎪" FontSize="32" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Зона приколов" FontFamily="{StaticResource AppFont}"
+                                       FontSize="15" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Text="Рулетка, генератор боли, цитаты" FontSize="12"
+                                       Foreground="{StaticResource TextSecondaryBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource GlassCard}" Margin="10,0,0,0"
+                        Cursor="Hand" MouseLeftButtonUp="OpenMines_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="💣" FontSize="32" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Сапёр" FontFamily="{StaticResource AppFont}"
+                                       FontSize="15" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Text="Проиграл → мем «ЭТО НЕ ВЫХОД»" FontSize="12"
+                                       Foreground="{StaticResource TextSecondaryBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
             <!-- Funny disclaimer -->
             <Border Style="{StaticResource GlassCard}" Margin="0,28,0,0"
                     BorderBrush="{StaticResource AccentPinkBrush}">

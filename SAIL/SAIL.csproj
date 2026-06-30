@@ -11,7 +11,6 @@
     <RootNamespace>SAIL</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
 
-    <!-- SAIL PROJECT — метаданные сборки -->
     <Version>0.0.0.1</Version>
     <AssemblyVersion>0.0.0.1</AssemblyVersion>
     <FileVersion>0.0.0.1</FileVersion>
@@ -22,17 +21,23 @@
     <Copyright>© dolbaeb productions</Copyright>
     <Description>SAIL Launcher — лаунчер продажи Roblox-аккаунтов. Язык: русский.</Description>
 
-    <!-- WPF + single-file: без сжатия, иначе .exe не стартует -->
     <EnableCompressionInSingleFile>false</EnableCompressionInSingleFile>
-    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
     <Resource Include="Assets\app-icon.png" />
     <Resource Include="Assets\meme1.jpg" />
     <Resource Include="Assets\meme2.jpg" />
+    <Resource Include="Assets\meme3.jpg" />
+    <Resource Include="Assets\meme4.jpg" />
+    <Resource Include="Assets\meme5.jpg" />
+    <Resource Include="Assets\meme6.jpg" />
+    <Resource Include="Assets\meme7.jpg" />
+    <Resource Include="Assets\meme8.jpg" />
     <Resource Include="Assets\money.jpg" />
     <Resource Include="Assets\deal.jpg" />
+    <Resource Include="Assets\Sounds\*.mp3" />
+    <Resource Include="Assets\Sounds\*.wav" />
   </ItemGroup>
 
 </Project>

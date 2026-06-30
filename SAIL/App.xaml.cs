@@ -2,6 +2,8 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Windows;
+using SAIL.Helpers;
+using SAIL.Views;
 
 namespace SAIL;
 
@@ -34,9 +36,22 @@ public partial class App : Application
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
 
+            if (!UserAgreementStorage.IsAccepted)
+            {
+                var agreement = new UserAgreementWindow();
+                var accepted = agreement.ShowDialog();
+                if (accepted != true || !agreement.Accepted)
+                {
+                    Shutdown(0);
+                    return;
+                }
+            }
+
             var mainWindow = new MainWindow();
             MainWindow = mainWindow;
             mainWindow.Show();
+            SoundHelper.PlayAction(SoundAction.AppStartup);
+            SoundHelper.StartSurpriseTimer(mainWindow.Dispatcher);
         }
         catch (Exception ex)
         {

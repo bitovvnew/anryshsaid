@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using SAIL.Helpers;
 
 namespace SAIL.Views;
 
@@ -48,6 +49,8 @@ public partial class ContractView : UserControl
         SignButton.IsEnabled = false;
         SignButton.Content = "✅ Подписано! 15% — навсегда";
 
+        SoundHelper.PlayAction(SoundAction.ContractSign);
+
         MessageBox.Show(
             $"Поздравляем, {nameA}!\n\n" +
             $"Ты только что подписал договор SAIL PROJECT с {nameB}.\n" +
@@ -60,6 +63,23 @@ public partial class ContractView : UserControl
             MessageBoxImage.Information);
 
         ContractSigned?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Reject_Click(object sender, RoutedEventArgs e)
+    {
+        SoundHelper.PlayAction(SoundAction.ContractReject);
+        var window = Window.GetWindow(this);
+        var game = new RejectContractGameWindow { Owner = window };
+        game.ShowDialog();
+
+        if (game.EscapeSuccessful)
+        {
+            MessageBox.Show(
+                "Ты победил в мини-игре!\n\nНо договор 15% всё равно рекомендуется подписать 😈",
+                "SAIL PROJECT — Побег",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+        }
     }
 
     private void Print_Click(object sender, RoutedEventArgs e)
