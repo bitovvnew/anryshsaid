@@ -29,12 +29,9 @@
                     MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <Grid Margin="12,0">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Border Width="28" Height="28" CornerRadius="8"
-                                Background="{StaticResource HeroGradient}" Margin="0,0,10,0">
-                            <TextBlock Text="S" FontFamily="{StaticResource AppFont}"
-                                       FontSize="14" FontWeight="Bold" Foreground="White"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
+                        <Image Source="pack://application:,,,/Assets/app-icon.png"
+                               Width="28" Height="28" Margin="0,0,10,0"
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
                         <StackPanel VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="SAIL PROJECT" FontFamily="{StaticResource AppFont}"

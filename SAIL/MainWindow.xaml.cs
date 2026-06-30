@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using SAIL.Helpers;
 using SAIL.Views;
 
@@ -18,6 +19,8 @@ public partial class MainWindow : Window
 
         Title = $"{AppInfo.ProjectName} — {AppInfo.LauncherName}";
         VersionBadge.Text = AppInfo.Version;
+
+        Icon = BitmapFrame.Create(new Uri("pack://application:,,,/Assets/app-icon.png", UriKind.Absolute));
 
         WindowHelper.EnableBlur(this);
 

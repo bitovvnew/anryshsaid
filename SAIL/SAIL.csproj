@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
     <AssemblyName>SAIL</AssemblyName>
     <RootNamespace>SAIL</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -22,15 +23,8 @@
     <Description>SAIL Launcher — лаунчер продажи Roblox-аккаунтов. Язык: русский.</Description>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <PublishSingleFile>true</PublishSingleFile>
-    <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
-  </PropertyGroup>
-
   <ItemGroup>
+    <Resource Include="Assets\app-icon.png" />
     <Resource Include="Assets\meme1.jpg" />
     <Resource Include="Assets\meme2.jpg" />
     <Resource Include="Assets\money.jpg" />
