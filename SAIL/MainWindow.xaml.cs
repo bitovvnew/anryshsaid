@@ -20,7 +20,7 @@ public partial class MainWindow : Window
         Title = $"{AppInfo.ProjectName} — {AppInfo.LauncherName}";
         VersionBadge.Text = AppInfo.Version;
 
-        Icon = BitmapFrame.Create(new Uri("pack://application:,,,/Assets/app-icon.png", UriKind.Absolute));
+        TrySetWindowIcon();
 
         WindowHelper.EnableBlur(this);
 
@@ -32,6 +32,19 @@ public partial class MainWindow : Window
         _homeView.NavigateToGallery += (_, _) => NavigateTo(NavGallery);
 
         ContentHost.Content = _homeView;
+    }
+
+    private void TrySetWindowIcon()
+    {
+        try
+        {
+            var uri = new Uri("pack://application:,,,/Assets/app-icon.png", UriKind.Absolute);
+            Icon = BitmapFrame.Create(uri);
+        }
+        catch
+        {
+            // Иконка окна необязательна — .exe-иконка остаётся из ApplicationIcon
+        }
     }
 
     private void NavigateTo(RadioButton navButton)

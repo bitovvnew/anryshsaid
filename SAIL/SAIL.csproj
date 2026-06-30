@@ -21,6 +21,10 @@
     <Authors>bito</Authors>
     <Copyright>© dolbaeb productions</Copyright>
     <Description>SAIL Launcher — лаунчер продажи Roblox-аккаунтов. Язык: русский.</Description>
+
+    <!-- WPF + single-file: без сжатия, иначе .exe не стартует -->
+    <EnableCompressionInSingleFile>false</EnableCompressionInSingleFile>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
