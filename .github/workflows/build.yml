@@ -29,21 +29,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Публикация portable .exe (WPF-safe)
-        run: >
-          dotnet publish ${{ env.PROJECT_PATH }}
-          -c Release
-          -r win-x64
-          --self-contained true
-          -p:PublishSingleFile=true
-          -p:IncludeNativeLibrariesForSelfExtract=true
-          -p:IncludeAllContentForSelfExtract=true
-          -p:EnableCompressionInSingleFile=false
-          -p:DebugType=None
-          -p:DebugSymbols=false
-          -o publish
-
-      - name: Публикация папки (запасной вариант, 100% работает)
+      - name: Публикация папки (основной вариант)
         run: >
           dotnet publish ${{ env.PROJECT_PATH }}
           -c Release
@@ -53,6 +39,19 @@ jobs:
           -p:DebugType=None
           -p:DebugSymbols=false
           -o publish-folder
+
+      - name: Публикация single-file .exe (опционально)
+        run: >
+          dotnet publish ${{ env.PROJECT_PATH }}
+          -c Release
+          -r win-x64
+          --self-contained true
+          -p:PublishSingleFile=true
+          -p:IncludeNativeLibrariesForSelfExtract=true
+          -p:EnableCompressionInSingleFile=false
+          -p:DebugType=None
+          -p:DebugSymbols=false
+          -o publish
 
       - name: Упаковка папки в ZIP
         shell: pwsh
@@ -83,8 +82,8 @@ jobs:
             **Цифровая подпись:** dolbaeb productions
 
             ### Скачать
-            - `SAIL-PROJECT-bito-0.0.0.1-win-x64.exe` — один файл, portable
-            - `SAIL-PROJECT-bito-0.0.0.1-win-x64-folder.zip` — если .exe не стартует, распакуй и запусти `SAIL.exe` из папки
+            - `SAIL-PROJECT-bito-0.0.0.1-win-x64-folder.zip` — **рекомендуется**: распакуй и запусти `SAIL.exe`
+            - `SAIL-PROJECT-bito-0.0.0.1-win-x64.exe` — один файл (может ругаться антивирус)
 
             ### Язык
             🇷🇺 Русский | 🇺🇸 English (флаги в интерфейсе)
