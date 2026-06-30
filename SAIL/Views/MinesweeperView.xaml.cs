@@ -159,6 +159,7 @@ public partial class MinesweeperView : UserControl
             SoundHelper.PlayAction(SoundAction.MineExplode);
             MemeOverlayHelper.Show(window, "ЭТО НЕ ВЫХОД",
                 "Ты наступил на 15% в форме мины. 💣\nСапёр не прощает. Договор тоже.");
+        }
     }
 
     private void WinGame()
