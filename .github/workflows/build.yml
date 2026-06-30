@@ -24,16 +24,10 @@ jobs:
       - name: Клонирование репозитория
         uses: actions/checkout@v4
 
-      - name: Установка .NET SDK
+      - name: Установка .NET SDK 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Восстановление зависимостей
-        run: dotnet restore ${{ env.PROJECT_PATH }}
-
-      - name: Сборка Release
-        run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
 
       - name: Публикация single-file .exe
         run: >
