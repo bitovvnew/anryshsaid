@@ -1,0 +1,194 @@
+<UserControl x:Class="SAIL.Views.GalleryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <StackPanel Margin="0,0,0,24">
+                <TextBlock Text="🤣 Галерея мемов · SAIL PROJECT" FontFamily="{StaticResource AppFont}"
+                           FontSize="26" FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimaryBrush}"/>
+                <TextBlock Text="Картинки по теме: Roblox, деньги, договоры и 15% · 🇷🇺 🇺🇸 · dolbaeb productions"
+                           FontFamily="{StaticResource AppFont}" FontSize="14"
+                           Foreground="{StaticResource TextSecondaryBrush}" Margin="0,6,0,0"/>
+            </StackPanel>
+
+            <UniformGrid Columns="2" Margin="0,0,0,20">
+
+                <!-- Meme 1 -->
+                <Border Style="{StaticResource GlassCard}" Margin="0,0,10,16">
+                    <StackPanel>
+                        <Border CornerRadius="12" ClipToBounds="True" Height="200">
+                            <Image Source="pack://application:,,,/Assets/meme1.jpg" Stretch="UniformToFill"/>
+                        </Border>
+                        <TextBlock Text="Когда продал аккаунт за 5000₽" FontFamily="{StaticResource AppFont}"
+                                   FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" Margin="0,12,0,4"/>
+                        <TextBlock Text="А друг уже считает свои 750₽ (15%) в голове"
+                                   FontFamily="{StaticResource AppFont}" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" TextWrapping="Wrap"/>
+                        <Button Content="😂 Обдриться" Style="{StaticResource SecondaryButton}"
+                                Margin="0,12,0,0" HorizontalAlignment="Left"
+                                Click="Laugh_Click" Tag="meme1"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Meme 2 -->
+                <Border Style="{StaticResource GlassCard}" Margin="10,0,0,16">
+                    <StackPanel>
+                        <Border CornerRadius="12" ClipToBounds="True" Height="200">
+                            <Image Source="pack://application:,,,/Assets/meme2.jpg" Stretch="UniformToFill"/>
+                        </Border>
+                        <TextBlock Text="Лицо продавца после подписания договора"
+                                   FontFamily="{StaticResource AppFont}" FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" Margin="0,12,0,4"/>
+                        <TextBlock Text="«15%? Да ладно, это же мелочь...» — famous last words"
+                                   FontFamily="{StaticResource AppFont}" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" TextWrapping="Wrap"/>
+                        <Button Content="💀 RIP Robux" Style="{StaticResource SecondaryButton}"
+                                Margin="0,12,0,0" HorizontalAlignment="Left"
+                                Click="Laugh_Click" Tag="meme2"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Meme 3 -->
+                <Border Style="{StaticResource GlassCard}" Margin="0,0,10,16">
+                    <StackPanel>
+                        <Border CornerRadius="12" ClipToBounds="True" Height="200">
+                            <Image Source="pack://application:,,,/Assets/money.jpg" Stretch="UniformToFill"/>
+                        </Border>
+                        <TextBlock Text="Сторона Б получает свои 15%"
+                                   FontFamily="{StaticResource AppFont}" FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" Margin="0,12,0,4"/>
+                        <TextBlock Text="Математика: ты продал → он богатеет. Просто."
+                                   FontFamily="{StaticResource AppFont}" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" TextWrapping="Wrap"/>
+                        <Button Content="💰 Калькулятор боли" Style="{StaticResource SecondaryButton}"
+                                Margin="0,12,0,0" HorizontalAlignment="Left"
+                                Click="Laugh_Click" Tag="money"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Meme 4 -->
+                <Border Style="{StaticResource GlassCard}" Margin="10,0,0,16">
+                    <StackPanel>
+                        <Border CornerRadius="12" ClipToBounds="True" Height="200">
+                            <Image Source="pack://application:,,,/Assets/deal.jpg" Stretch="UniformToFill"/>
+                        </Border>
+                        <TextBlock Text="Рукопожатие по договору SAIL"
+                                   FontFamily="{StaticResource AppFont}" FontSize="14" FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextPrimaryBrush}" Margin="0,12,0,4"/>
+                        <TextBlock Text="«Договорились!» — сказал один. «15%» — подумал другой."
+                                   FontFamily="{StaticResource AppFont}" FontSize="12"
+                                   Foreground="{StaticResource TextSecondaryBrush}" TextWrapping="Wrap"/>
+                        <Button Content="🤝 Подписать ещё раз" Style="{StaticResource SecondaryButton}"
+                                Margin="0,12,0,0" HorizontalAlignment="Left"
+                                Click="Laugh_Click" Tag="deal"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Hand-drawn funny cards (XAML art) -->
+            <TextBlock Text="Эксклюзивные иллюстрации SAIL" FontFamily="{StaticResource AppFont}"
+                       FontSize="18" FontWeight="SemiBold"
+                       Foreground="{StaticResource TextPrimaryBrush}" Margin="0,8,0,16"/>
+
+            <UniformGrid Columns="3">
+                <!-- Roblox noob -->
+                <Border Style="{StaticResource GlassCard}" Margin="0,0,8,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <Canvas Width="120" Height="120" Margin="0,0,0,12">
+                            <Rectangle Canvas.Left="40" Canvas.Top="20" Width="40" Height="40"
+                                       Fill="#FFD9D9D9" RadiusX="4" RadiusY="4"/>
+                            <Rectangle Canvas.Left="35" Canvas.Top="60" Width="50" Height="45"
+                                       Fill="#FF0066FF" RadiusX="4" RadiusY="4"/>
+                            <Rectangle Canvas.Left="20" Canvas.Top="65" Width="18" Height="35"
+                                       Fill="#FFD9D9D9" RadiusX="3" RadiusY="3"/>
+                            <Rectangle Canvas.Left="82" Canvas.Top="65" Width="18" Height="35"
+                                       Fill="#FFD9D9D9" RadiusX="3" RadiusY="3"/>
+                            <Ellipse Canvas.Left="48" Canvas.Top="30" Width="8" Height="8" Fill="Black"/>
+                            <Ellipse Canvas.Left="64" Canvas.Top="30" Width="8" Height="8" Fill="Black"/>
+                            <TextBlock Canvas.Left="30" Canvas.Top="105" Text="noob" FontSize="10"
+                                       Foreground="{StaticResource TextSecondaryBrush}"/>
+                        </Canvas>
+                        <TextBlock Text="Аккаунт до продажи" FontFamily="{StaticResource AppFont}"
+                                   FontSize="12" HorizontalAlignment="Center"
+                                   Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Arrow -->
+                <Border Style="{StaticResource GlassCard}" Margin="4,0">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="➡️ 💸 ➡️" FontSize="36" HorizontalAlignment="Center"/>
+                        <TextBlock Text="-15%" FontFamily="{StaticResource AppFont}"
+                                   FontSize="28" FontWeight="Bold"
+                                   Foreground="{StaticResource AccentPinkBrush}"
+                                   HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                        <TextBlock Text="магия договора" FontFamily="{StaticResource AppFont}"
+                                   FontSize="11" HorizontalAlignment="Center"
+                                   Foreground="{StaticResource TextSecondaryBrush}" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Rich noob -->
+                <Border Style="{StaticResource GlassCard}" Margin="8,0,0,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <Canvas Width="120" Height="120" Margin="0,0,0,12">
+                            <Rectangle Canvas.Left="40" Canvas.Top="20" Width="40" Height="40"
+                                       Fill="#FFFFD700" RadiusX="4" RadiusY="4"/>
+                            <Rectangle Canvas.Left="35" Canvas.Top="60" Width="50" Height="45"
+                                       Fill="#FF30D158" RadiusX="4" RadiusY="4"/>
+                            <TextBlock Canvas.Left="42" Canvas.Top="28" Text="$$$" FontSize="14"
+                                       FontWeight="Bold" Foreground="#FF8B6914"/>
+                            <Ellipse Canvas.Left="48" Canvas.Top="38" Width="8" Height="8" Fill="Black"/>
+                            <Ellipse Canvas.Left="64" Canvas.Top="38" Width="8" Height="8" Fill="Black"/>
+                            <TextBlock Canvas.Left="20" Canvas.Top="105" Text="rich noob" FontSize="10"
+                                       Foreground="{StaticResource AccentGreenBrush}"/>
+                        </Canvas>
+                        <TextBlock Text="Сторона Б после 15%" FontFamily="{StaticResource AppFont}"
+                                   FontSize="12" HorizontalAlignment="Center"
+                                   Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Calculator -->
+            <Border Style="{StaticResource GlassCard}" Margin="0,20,0,0">
+                <StackPanel>
+                    <TextBlock Text="🧮 Калькулятор 15%" FontFamily="{StaticResource AppFont}"
+                               FontSize="16" FontWeight="SemiBold"
+                               Foreground="{StaticResource TextPrimaryBrush}"/>
+                    <Grid Margin="0,16,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Цена продажи (₽)" FontFamily="{StaticResource AppFont}"
+                                       FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"/>
+                            <TextBox x:Name="PriceInput" Margin="0,8,0,0"
+                                     Background="#12FFFFFF" Foreground="White"
+                                     BorderBrush="#28FFFFFF" BorderThickness="1"
+                                     Padding="12,10" FontFamily="{StaticResource AppFont}"
+                                     FontSize="16" CaretBrush="White" Text="1000"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="1" Text="→" FontSize="24"
+                                   Foreground="{StaticResource TextSecondaryBrush}"
+                                   VerticalAlignment="Bottom" Margin="20,0,20,10"/>
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Друг получает (15%)" FontFamily="{StaticResource AppFont}"
+                                       FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"/>
+                            <TextBlock x:Name="ResultText" Text="150 ₽" FontFamily="{StaticResource AppFont}"
+                                       FontSize="28" FontWeight="Bold"
+                                       Foreground="{StaticResource AccentGreenBrush}" Margin="0,8,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Content="Посчитать боль" Style="{StaticResource PrimaryButton}"
+                            HorizontalAlignment="Left" Margin="0,16,0,0"
+                            Click="Calculate_Click"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

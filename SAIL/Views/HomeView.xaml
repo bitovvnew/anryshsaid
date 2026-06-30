@@ -1,0 +1,152 @@
+<UserControl x:Class="SAIL.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Margin="0,0,0,40">
+
+            <!-- Hero -->
+            <Border CornerRadius="20" Height="220" Margin="0,0,0,28" ClipToBounds="True">
+                <Grid>
+                    <Border Background="{StaticResource HeroGradient}" Opacity="0.85"/>
+                    <Canvas>
+                        <Ellipse Width="300" Height="300" Canvas.Left="-80" Canvas.Top="-60"
+                                 Fill="#20FFFFFF"/>
+                        <Ellipse Width="200" Height="200" Canvas.Right="40" Canvas.Top="20"
+                                 Fill="#15FFFFFF"/>
+                        <Ellipse Width="120" Height="120" Canvas.Right="200" Canvas.Bottom="-30"
+                                 Fill="#25FFFFFF"/>
+                    </Canvas>
+                    <StackPanel VerticalAlignment="Center" Margin="36,0">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="SAIL PROJECT" FontFamily="{StaticResource AppFont}"
+                                       FontSize="36" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock Text=" 🇷🇺 🇺🇸" FontSize="32" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                        </StackPanel>
+                        <TextBlock Text="SAIL Launcher · bito 0.0.0.1" FontFamily="{StaticResource AppFont}"
+                                   FontSize="14" Foreground="#C0FFFFFF" Margin="0,4,0,0"/>
+                        <TextBlock Text="Продажа Roblox-аккаунтов. Красиво. Легально*."
+                                   FontFamily="{StaticResource AppFont}" FontSize="16"
+                                   Foreground="#E0FFFFFF" Margin="0,8,0,0"/>
+                        <TextBlock Text="*легальность не гарантируется, зато договор — железобетонный"
+                                   FontFamily="{StaticResource AppFont}" FontSize="11"
+                                   Foreground="#A0FFFFFF" Margin="0,4,0,0" FontStyle="Italic"/>
+                        <TextBlock Text="🔏 dolbaeb productions" FontFamily="{StaticResource AppFont}"
+                                   FontSize="12" Foreground="#B0FFFFFF" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Stats cards -->
+            <UniformGrid Columns="3" Margin="0,0,0,28">
+                <Border Style="{StaticResource GlassCard}" Margin="0,0,12,0">
+                    <StackPanel>
+                        <TextBlock Text="💰" FontSize="28"/>
+                        <TextBlock Text="15%" FontFamily="{StaticResource AppFont}"
+                                   FontSize="32" FontWeight="Bold"
+                                   Foreground="{StaticResource AccentGreenBrush}" Margin="0,8,0,0"/>
+                        <TextBlock Text="Комиссия по договору" FontFamily="{StaticResource AppFont}"
+                                   FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource GlassCard}" Margin="6,0">
+                    <StackPanel>
+                        <TextBlock Text="🎮" FontSize="28"/>
+                        <TextBlock Text="Roblox" FontFamily="{StaticResource AppFont}"
+                                   FontSize="32" FontWeight="Bold"
+                                   Foreground="{StaticResource AccentBlueBrush}" Margin="0,8,0,0"/>
+                        <TextBlock Text="Площадка продаж" FontFamily="{StaticResource AppFont}"
+                                   FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource GlassCard}" Margin="12,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="📝" FontSize="28"/>
+                        <TextBlock Text="∞" FontFamily="{StaticResource AppFont}"
+                                   FontSize="32" FontWeight="Bold"
+                                   Foreground="{StaticResource AccentPinkBrush}" Margin="0,8,0,0"/>
+                        <TextBlock Text="Пунктов в договоре" FontFamily="{StaticResource AppFont}"
+                                   FontSize="12" Foreground="{StaticResource TextSecondaryBrush}"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Quick actions -->
+            <TextBlock Text="Быстрые действия" FontFamily="{StaticResource AppFont}"
+                       FontSize="20" FontWeight="SemiBold"
+                       Foreground="{StaticResource TextPrimaryBrush}" Margin="0,0,0,16"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Style="{StaticResource GlassCard}" Margin="0,0,10,0"
+                        Cursor="Hand" MouseLeftButtonUp="OpenContract_Click">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Width="56" Height="56" CornerRadius="14"
+                                Background="#220078D4" VerticalAlignment="Center">
+                            <TextBlock Text="📜" FontSize="28" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Подписать договор" FontFamily="{StaticResource AppFont}"
+                                       FontSize="16" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Text="15% с каждой продажи — навсегда и без возврата"
+                                       FontFamily="{StaticResource AppFont}" FontSize="12"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       TextWrapping="Wrap" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Column="1" Style="{StaticResource GlassCard}" Margin="10,0,0,0"
+                        Cursor="Hand" MouseLeftButtonUp="OpenGallery_Click">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Width="56" Height="56" CornerRadius="14"
+                                Background="#22FF375F" VerticalAlignment="Center">
+                            <TextBlock Text="🤣" FontSize="28" HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="Галерея мемов" FontFamily="{StaticResource AppFont}"
+                                       FontSize="16" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextPrimaryBrush}"/>
+                            <TextBlock Text="Картинки, от которых можно обдриться"
+                                       FontFamily="{StaticResource AppFont}" FontSize="12"
+                                       Foreground="{StaticResource TextSecondaryBrush}"
+                                       TextWrapping="Wrap" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Funny disclaimer -->
+            <Border Style="{StaticResource GlassCard}" Margin="0,28,0,0"
+                    BorderBrush="{StaticResource AccentPinkBrush}">
+                <StackPanel>
+                    <TextBlock Text="⚠️ Важное уведомление" FontFamily="{StaticResource AppFont}"
+                               FontSize="14" FontWeight="SemiBold"
+                               Foreground="{StaticResource AccentPinkBrush}"/>
+                    <TextBlock FontFamily="{StaticResource AppFont}" FontSize="13"
+                               Foreground="{StaticResource TextSecondaryBrush}"
+                               TextWrapping="Wrap" Margin="0,8,0,0" LineHeight="22">
+                        Нажимая «Запустить SAIL», вы автоматически соглашаетесь отдать 15% с продажи,
+                        не есть три дня, и признаёте, что Roblox — это не просто игра, а бизнес-модель
+                        на ваших robux'ах. Лаунчер не несёт ответственности за слёзы, смех и
+                        семейные ссоры из-за договора.
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
