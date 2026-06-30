@@ -1,0 +1,85 @@
+name: SAIL PROJECT — Сборка
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  PROJECT_PATH: SAIL/SAIL.csproj
+  OUTPUT_NAME: SAIL
+
+jobs:
+  build:
+    name: Сборка .exe (Windows)
+    runs-on: windows-latest
+
+    steps:
+      - name: Клонирование репозитория
+        uses: actions/checkout@v4
+
+      - name: Установка .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Восстановление зависимостей
+        run: dotnet restore ${{ env.PROJECT_PATH }}
+
+      - name: Сборка Release
+        run: dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
+
+      - name: Публикация single-file .exe
+        run: >
+          dotnet publish ${{ env.PROJECT_PATH }}
+          -c Release
+          -r win-x64
+          --self-contained true
+          -p:PublishSingleFile=true
+          -p:IncludeNativeLibrariesForSelfExtract=true
+          -p:EnableCompressionInSingleFile=true
+          -p:DebugType=None
+          -p:DebugSymbols=false
+          -o publish
+
+      - name: Переименование артефакта
+        shell: pwsh
+        run: |
+          Copy-Item "publish/${{ env.OUTPUT_NAME }}.exe" "publish/SAIL-PROJECT-bito-0.0.0.1-win-x64.exe"
+
+      - name: Загрузка .exe как артефакт
+        uses: actions/upload-artifact@v4
+        with:
+          name: SAIL-PROJECT-bito-0.0.0.1-win-x64
+          path: |
+            publish/SAIL-PROJECT-bito-0.0.0.1-win-x64.exe
+            publish/${{ env.OUTPUT_NAME }}.exe
+          retention-days: 30
+
+      - name: Создание Release (только при push тега v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: publish/SAIL-PROJECT-bito-0.0.0.1-win-x64.exe
+          name: SAIL PROJECT — bito 0.0.0.1
+          body: |
+            ## SAIL PROJECT — bito 0.0.0.1
+
+            **Цифровая подпись:** dolbaeb productions
+
+            ### Скачать
+            - `SAIL-PROJECT-bito-0.0.0.1-win-x64.exe` — portable, не требует установки .NET
+
+            ### Язык
+            🇷🇺 Русский | 🇺🇸 English (флаги в интерфейсе)
+
+            ---
+            *Собрано автоматически GitHub Actions*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
